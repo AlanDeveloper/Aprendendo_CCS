@@ -1,0 +1,47 @@
+table{
+  border-style: solid;
+  border-color: #000000;
+  margin: 0 auto;
+}
+h1{
+  font-weight: normal;
+  text-align: center;
+  font-family: "arial","opensans",sans-serif;
+  background-color: #EEE;
+}
+h2{
+  text-align: center;
+}
+caption{
+  font-family: "arial","opensans",sans-serif;
+}
+td,th{
+  padding:10px;
+  border-width: 1px;
+  border-color: #000000;
+  margin: 0 auto;
+  border-style: solid;
+}
+tr{
+  background-color: write;
+}
+.gree{
+  border-style: solid;
+  background-color: #1aff1a;
+}
+.blue{
+  border-style: solid;
+  background-color: #3333ff;
+}
+.write{
+  border-style: solid;
+  background-color: write;
+}
+.noclick{
+  border-style: none;
+  border-color: #000000;
+}
+.blocktext{
+  text-align: center;
+  margin: right;
+}
