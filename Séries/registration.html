@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Registration</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/cover.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="cover-container">
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">Stardust</h3>
+              <nav>
+                <ul class="nav masthead-nav">
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="movies.html">Movies</a></li>
+                  <li class="active"><a href="#">Movie registration</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+        </div>
+        <div class="container">
+          <form>
+            <div class="form-group">
+              <label for="seri">Nome do Seriado :</label>
+              <input type="text" class="form-control"
+                     list="series"
+                     id="seri" name="seri"
+                     placeholder="Seriado"
+                     required > <!-- pattern="[a-zA-Z]{5,20}" REGEX -->
+            </div>
+            <div class="form-group">
+              <label for="temp">Temporadas :</label>
+              <input type="number" class="form-control"
+                     id="temp" name="temp" required
+                     placeholder="Temporada">
+            </div>
+            <div class="form-group">
+              <label for="ep">Episódios :</label>
+              <input type="number" class="form-control"
+                     id="ep" name="ep" required
+                       qplaceholder="Episódios">
+            </div>
+          </form>
+          <button id="btn"type="button" class="btn btn-default">OK</button>
+          <button type="submit" class="btn btn-default">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/handlebars.js"></script>
+    <script src="js/persistencia.js"></script>
+    <script>
+      const form = document.querySelector('form');
+      const temp = [];
+      let ct = 0;
+      let cp = 0;
+      btn.addEventListener('click', function (e) {
+        temp.push(form.ep.value);
+        ct = temp[form.ep.value.length] + ct;
+        cp = cp + parseInt(temp[temp.length -1]);
+        console.log(parseInt(temp[temp.length -1]));
+      });
+      form.addEventListener('submit', function (e) {
+          Persistencia.adiciona('series', {
+            serie: form.seri.value,
+            temporada: form.temp.value,
+            episodio: cp
+          });
+          form.reset();
+          e.preventDefault();
+      });
+    </script>
+  </body>
+</html>
